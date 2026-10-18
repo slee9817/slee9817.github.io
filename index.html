@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sean Lee — Quality Engineer</title>
+<meta name="description" content="Sean Lee: quality engineer and electrical & computer engineering student. Projects, experience, and contact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ---------- Colors (light) ---------- */
+  :root {
+    --bg: #f6f5f1;
+    --surface: #ffffff;
+    --text: #1c1d1f;
+    --muted: #5d6168;
+    --line: #dddbd3;
+    --accent: #1f7a4d;        /* phosphor green, darkened for light backgrounds */
+    --accent-soft: #e3f1e9;
+    --screen: #0d120f;
+  }
+  /* ---------- Colors (dark) ---------- */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1112;
+      --surface: #171a1c;
+      --text: #e9eae6;
+      --muted: #9ba19d;
+      --line: #2a2f2c;
+      --accent: #5fd99a;
+      --accent-soft: #15261d;
+      --screen: #060807;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.65 "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, Consolas, monospace; }
+
+  /* ---------- Top bar ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  nav .name { font-weight: 600; text-decoration: none; color: var(--text); }
+  nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+  nav ul a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+  nav ul a:hover { color: var(--text); }
+
+  /* ---------- Hero ---------- */
+  header { padding: 80px 0 56px; }
+  .eyebrow { font-size: 0.85rem; color: var(--accent); letter-spacing: 0.04em; margin: 0 0 14px; }
+  h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1.1; margin: 0 0 18px; letter-spacing: -0.02em; }
+  .lede { font-size: 1.2rem; color: var(--muted); max-width: 40rem; margin: 0 0 28px; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-block; padding: 10px 18px; border-radius: 8px;
+    text-decoration: none; font-weight: 500; font-size: 0.95rem;
+    border: 1px solid var(--line); color: var(--text); background: var(--surface);
+  }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+  .btn:hover { border-color: var(--accent); }
+
+  /* ---------- Sections ---------- */
+  section { padding: 56px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+       color: var(--muted); margin: 0 0 28px; }
+  h3 { font-size: 1.3rem; margin: 0 0 6px; }
+  p { margin: 0 0 16px; }
+
+  /* ---------- Projects ---------- */
+  .project {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 24px; margin-bottom: 20px;
+  }
+  .project .shot {
+    background: var(--screen); border-radius: 8px; aspect-ratio: 2 / 1; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .project .shot img { width: 100%; height: 100%; object-fit: cover; image-rendering: pixelated; display: block; }
+  .project .shot .placeholder { color: #5fd99a; font-size: 0.9rem; opacity: 0.8; }
+  .meta { font-size: 0.8rem; color: var(--muted); margin: 0 0 12px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; padding: 0; list-style: none; }
+  .tags li { font-size: 0.75rem; padding: 2px 8px; border-radius: 999px;
+             background: var(--accent-soft); color: var(--accent); }
+  .links { display: flex; gap: 16px; font-size: 0.95rem; font-weight: 500; }
+  .status { display: inline-block; font-size: 0.75rem; padding: 2px 8px; border-radius: 4px;
+            border: 1px solid var(--line); color: var(--muted); margin-left: 8px; vertical-align: middle; }
+
+  /* ---------- Experience timeline ---------- */
+  .timeline { list-style: none; margin: 0; padding: 0; }
+  .timeline li { display: grid; grid-template-columns: 150px 1fr; gap: 20px; padding: 14px 0; }
+  .timeline li + li { border-top: 1px dashed var(--line); }
+  .timeline .when { color: var(--muted); font-size: 0.85rem; padding-top: 3px; }
+  .timeline .role { font-weight: 600; }
+  .timeline .where { color: var(--muted); }
+
+  /* ---------- Skills ---------- */
+  .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .skills h3 { font-size: 1rem; margin-bottom: 10px; }
+  .skills ul { margin: 0; padding-left: 18px; color: var(--muted); }
+  .skills li { margin-bottom: 4px; }
+
+  /* ---------- Contact / footer ---------- */
+  .contact-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .contact-list .label { display: inline-block; width: 90px; color: var(--muted); font-size: 0.85rem; }
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--line); }
+
+  /* ---------- Stats row ---------- */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 44px; }
+  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+  .stat .num { font-size: 1.8rem; font-weight: 600; color: var(--accent); line-height: 1.1; }
+  .stat .what { font-size: 0.85rem; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+
+  /* ---------- Bullets under a role ---------- */
+  .timeline ul.wins { margin: 8px 0 0; padding-left: 18px; color: var(--text); font-size: 0.95rem; }
+  .timeline ul.wins li { display: list-item; padding: 0; border: 0; margin-bottom: 4px; }
+
+  /* ---------- Certifications ---------- */
+  .certs { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; margin: 0; padding: 0; }
+  .certs li { border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 8px 14px; font-size: 0.95rem; }
+  .certs .from { color: var(--muted); font-size: 0.85rem; }
+
+  /* ---------- Phones ---------- */
+  @media (max-width: 680px) {
+    nav ul { gap: 14px; }
+    nav ul li:nth-child(n+3) { display: none; }   /* keep only two links on small screens */
+    header { padding: 56px 0 40px; }
+    .project, .skills { grid-template-columns: 1fr; }
+    .timeline li { grid-template-columns: 1fr; gap: 2px; }
+    .stats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="name" href="#">Sean Lee</a>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#training">Training</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <!-- ===================== HERO ===================== -->
+  <header>
+    <p class="eyebrow mono">// Quality engineer · ECE student</p>
+    <h1>Quality engineer who turns requirements into parts that pass the first time.</h1>
+    <p class="lede">
+      I'm Sean Lee, a quality engineer with 5+ years in AS9100 / ISO 9001 aerospace and
+      semiconductor manufacturing, and an electrical &amp; computer engineering student near
+      Austin, Texas. Outside of work I build software, from video-game emulators to
+      statistical process control tools.
+    </p>
+    <div class="buttons">
+      <a class="btn primary" href="#projects">See my projects</a>
+      <a class="btn" href="https://github.com/slee9817">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/sean-lee-bbb8ab230/">LinkedIn</a>
+      <!-- Put a web copy of your resume (no phone number or home address) next to this file as resume.pdf -->
+      <a class="btn" href="resume.pdf">Resume (PDF)</a>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num mono">75%</div><div class="what">less inspection processing time after leading a quality software rollout</div></div>
+      <div class="stat"><div class="num mono">100+</div><div class="what">employees trained, with a 50% drop in operator-caused nonconformances</div></div>
+      <div class="stat"><div class="num mono">500+</div><div class="what">new parts brought through NPI quality planning</div></div>
+      <div class="stat"><div class="num mono">0</div><div class="what">major findings at ISO 9001 / AS9100 recertification</div></div>
+    </div>
+  </header>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section id="projects">
+    <h2 class="mono">Projects</h2>
+
+    <article class="project">
+      <div class="shot">
+        <!-- Copy docs/redoctober.png from the emulator repo into an images/ folder here -->
+        <img src="images/redoctober.png" alt="Red October, an XO-CHIP game, running in the emulator"
+             onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'placeholder mono',textContent:'CHIP-8 > _'}))">
+      </div>
+      <div>
+        <h3>CHIP-8 / SUPER-CHIP / XO-CHIP Emulator</h3>
+        <p class="meta mono">C++17 · SDL2 · WebAssembly</p>
+        <p>
+          An emulator for a family of retro virtual machines, written from scratch. It runs
+          classic 1970s games, hi-res SUPER-CHIP games, and modern 4-color XO-CHIP games
+          with programmable sound. It passes a standard opcode test suite, and the same C++
+          core is compiled to WebAssembly so it runs right in your browser.
+        </p>
+        <ul class="tags">
+          <li>CPU emulation</li><li>Audio</li><li>Graphics</li><li>Testing</li>
+        </ul>
+        <div class="links">
+          <a href="https://slee9817.github.io/chip8-emulator/">▶ Play it</a>
+          <a href="https://github.com/slee9817/chip8-emulator">Source</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="shot">
+        <span class="placeholder mono">UCL ─ ─ ─ ─<br>x̄ ·─·─·─·─·<br>LCL ─ ─ ─ ─</span>
+      </div>
+      <div>
+        <h3>SPC Control Chart Tool <span class="status mono">in progress</span></h3>
+        <p class="meta mono">Python · Streamlit · pandas · pytest</p>
+        <p>
+          A statistical process control web app. Load measurement data and it builds I-MR
+          and X̄-R control charts, flags out-of-control signals with the Western Electric
+          rules, and calculates process capability (Cp, Cpk, Pp, Ppk). Every calculation is
+          covered by unit tests with hand-checked expected values, and all sample data is synthetic.
+        </p>
+        <ul class="tags">
+          <li>SPC</li><li>Capability</li><li>Data analysis</li><li>Unit testing</li>
+        </ul>
+        <div class="links">
+          <!-- TODO: link the repo once it's on GitHub -->
+          <span class="meta mono">Coming soon</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ===================== EXPERIENCE ===================== -->
+  <section id="experience">
+    <h2 class="mono">Experience</h2>
+    <ul class="timeline">
+      <li>
+        <span class="when mono">2025 — present</span>
+        <div>
+          <div class="role">Quality Engineer</div>
+          <div class="where">Athena Manufacturing · Austin, TX</div>
+          <ul class="wins">
+            <li>Led the transition to 1Factory quality software, cutting quality processing time 75% across 2,000+ part numbers and 200 users</li>
+            <li>Direct a team of 4 quality engineering technicians who created 2,000+ inspection plans for aerospace and semiconductor components</li>
+            <li>Drove quality planning for 500+ new parts through NPI, flowing customer-specific requirements down into inspection plans, work instructions, and production controls</li>
+            <li>Manage 50+ engineering change requests a year as the liaison between production and customers, with 100% on-time closure</li>
+            <li>Led internal audits supporting ISO 9001 / AS9100 recertification with zero major findings</li>
+            <li>Led 30+ 8D corrective actions on customer and internal nonconformances, reducing repeat defects</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <span class="when mono">2021 — 2025</span>
+        <div>
+          <div class="role">Quality Technician I – III</div>
+          <div class="where">Athena Manufacturing · Austin, TX · promoted twice, Technician I → III</div>
+          <ul class="wins">
+            <li>Programmed and operated a Mitutoyo Crysta-Apex CMM (CMM-Manager) for high-precision aerospace and semiconductor components</li>
+            <li>Built AS9102 First Article Inspection packages for 15+ customers across aerospace, semiconductor, and other industries</li>
+            <li>Developed inspection plans for everything from machined components with tolerances to ±0.0002" to large integrated weldment frames</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <span class="when mono">Expected 2028</span>
+        <div>
+          <div class="role">B.S. Electrical &amp; Computer Engineering</div>
+          <div class="where">National University</div>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ===================== TRAINING & CERTS ===================== -->
+  <section id="training">
+    <h2 class="mono">Training &amp; mentorship</h2>
+    <p>
+      I developed and teach training on blueprint reading, GD&amp;T, inspection methods, and QMS procedures. More than 100
+      employees have been through my training, and operator-caused nonconformances dropped 50%.
+      I also mentor 15 high school interns a year through two internship programs with local schools, teaching measurement, inspection, and quality fundamentals.
+    </p>
+    <h3 style="font-size:1rem;margin:28px 0 12px">Certifications</h3>
+    <ul class="certs">
+      <li>GD&amp;T Certificate <span class="from">· Austin Community College</span></li>
+      <li>OSHA 30</li>
+    </ul>
+  </section>
+
+  <!-- ===================== SKILLS ===================== -->
+    <section id="skills">
+    <h2 class="mono">Skills</h2>
+    <div class="skills">
+      <div>
+        <h3>Quality engineering</h3>
+        <ul>
+          <li>AS9100, ISO 9001, AS9102 FAI, PPAP, APQP, CSRs</li>
+          <li>NPI quality planning, control plans, FMEA</li>
+          <li>8D corrective action &amp; root cause analysis</li>
+          <li>SPC, GD&amp;T, internal auditing, SOP development</li>
+          <li>Mitutoyo CMM / CMM-Manager</li>
+          <li>1Factory &amp; HighQA quality software</li>
+          <li>Engineering change management</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Software &amp; engineering</h3>
+        <ul>
+          <li>C++ (C++17), Python</li>
+          <li>WebAssembly / Emscripten, SDL2</li>
+          <li>pandas, Streamlit, pytest</li>
+          <li>Git &amp; GitHub, CMake</li>
+          <li>HTML &amp; CSS, SolidWorks, Excel</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact">
+    <h2 class="mono">Contact</h2>
+    <p>Want to talk quality, engineering, or emulators? Reach out.</p>
+    <ul class="contact-list">
+      <li><span class="label mono">Email</span><a href="mailto:seanlee901@gmail.com">seanlee901@gmail.com</a></li>
+      <li><span class="label mono">LinkedIn</span><a href="https://www.linkedin.com/in/sean-lee-bbb8ab230/">linkedin.com/in/sean-lee-bbb8ab230</a></li>
+      <li><span class="label mono">GitHub</span><a href="https://github.com/slee9817">github.com/slee9817</a></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap mono">© <span id="year"></span> Sean Lee · Built by hand with HTML &amp; CSS, hosted on GitHub Pages</div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
