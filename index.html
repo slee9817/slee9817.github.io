@@ -134,6 +134,18 @@
   .certs li { border: 1px solid var(--line); background: var(--surface); border-radius: 8px; padding: 8px 14px; font-size: 0.95rem; }
   .certs .from { color: var(--muted); font-size: 0.85rem; }
 
+    /* ---------- Profile photo ---------- */
+    .avatar {
+        width: 128px;
+        height: 128px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        margin: 0 0 24px;
+        border: 3px solid var(--accent);
+        box-shadow: 0 0 0 6px var(--accent-soft);
+    }
+
   /* ---------- Phones ---------- */
   @media (max-width: 680px) {
     nav ul { gap: 14px; }
@@ -163,30 +175,31 @@
 <main class="wrap">
 
   <!-- ===================== HERO ===================== -->
-  <header>
-    <p class="eyebrow mono">// Quality engineer · ECE student</p>
-    <h1>Quality engineer who turns requirements into parts that pass the first time.</h1>
-    <p class="lede">
-      I'm Sean Lee, a quality engineer with 5+ years in AS9100 / ISO 9001 aerospace and
-      semiconductor manufacturing, and an electrical &amp; computer engineering student near
-      Austin, Texas. Outside of work I build software, from video-game emulators to
-      statistical process control tools.
-    </p>
-    <div class="buttons">
-      <a class="btn primary" href="#projects">See my projects</a>
-      <a class="btn" href="https://github.com/slee9817">GitHub</a>
-      <a class="btn" href="https://www.linkedin.com/in/sean-lee-bbb8ab230/">LinkedIn</a>
-      <!-- Put a web copy of your resume (no phone number or home address) next to this file as resume.pdf -->
-      <a class="btn" href="resume.pdf">Resume (PDF)</a>
-    </div>
+    <header>
+        <img class="avatar" src="images/sean.jpg" alt="Sean Lee">
+        <p class="eyebrow mono">// Quality engineer · ECE student</p>
+        <h1>Quality engineer who turns requirements into parts that pass the first time.</h1>
+        <p class="lede">
+            I'm Sean Lee, a quality engineer with 5+ years in AS9100 / ISO 9001 aerospace and
+            semiconductor manufacturing, and an electrical &amp; computer engineering student near
+            Austin, Texas. Outside of work I build software, from video-game emulators to
+            statistical process control tools.
+        </p>
+        <div class="buttons">
+            <a class="btn primary" href="#projects">See my projects</a>
+            <a class="btn" href="https://github.com/slee9817">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/sean-lee-bbb8ab230/">LinkedIn</a>
+            <!-- Put a web copy of your resume (no phone number or home address) next to this file as resume.pdf -->
+            <a class="btn" href="resume.pdf">Resume (PDF)</a>
+        </div>
 
-    <div class="stats">
-      <div class="stat"><div class="num mono">75%</div><div class="what">less inspection processing time after leading a quality software rollout</div></div>
-      <div class="stat"><div class="num mono">100+</div><div class="what">employees trained, with a 50% drop in operator-caused nonconformances</div></div>
-      <div class="stat"><div class="num mono">500+</div><div class="what">new parts brought through NPI quality planning</div></div>
-      <div class="stat"><div class="num mono">0</div><div class="what">major findings at ISO 9001 / AS9100 recertification</div></div>
-    </div>
-  </header>
+        <div class="stats">
+            <div class="stat"><div class="num mono">75%</div><div class="what">less inspection processing time after leading a quality software rollout</div></div>
+            <div class="stat"><div class="num mono">100+</div><div class="what">employees trained, with a 50% drop in operator-caused nonconformances</div></div>
+            <div class="stat"><div class="num mono">500+</div><div class="what">new parts brought through NPI quality planning</div></div>
+            <div class="stat"><div class="num mono">0</div><div class="what">major findings at ISO 9001 / AS9100 recertification</div></div>
+        </div>
+    </header>
 
   <!-- ===================== PROJECTS ===================== -->
   <section id="projects">
