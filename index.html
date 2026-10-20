@@ -202,57 +202,90 @@
     </header>
 
   <!-- ===================== PROJECTS ===================== -->
-  <section id="projects">
-    <h2 class="mono">Projects</h2>
+    <section id="projects">
+        <h2 class="mono">Projects</h2>
 
-    <article class="project">
-      <div class="shot">
-        <!-- Copy docs/redoctober.png from the emulator repo into an images/ folder here -->
-        <img src="images/redoctober.png" alt="Red October, an XO-CHIP game, running in the emulator"
-             onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'placeholder mono',textContent:'CHIP-8 > _'}))">
-      </div>
-      <div>
-        <h3>CHIP-8 / SUPER-CHIP / XO-CHIP Emulator</h3>
-        <p class="meta mono">C++17 · SDL2 · WebAssembly</p>
-        <p>
-          An emulator for a family of retro virtual machines, written from scratch. It runs
-          classic 1970s games, hi-res SUPER-CHIP games, and modern 4-color XO-CHIP games
-          with programmable sound. It passes a standard opcode test suite, and the same C++
-          core is compiled to WebAssembly so it runs right in your browser.
-        </p>
-        <ul class="tags">
-          <li>CPU emulation</li><li>Audio</li><li>Graphics</li><li>Testing</li>
-        </ul>
-        <div class="links">
-          <a href="https://slee9817.github.io/chip8-emulator/">▶ Play it</a>
-          <a href="https://github.com/slee9817/chip8-emulator">Source</a>
-        </div>
-      </div>
-    </article>
+        <article class="project">
+            <div class="shot">
+                <!-- Copy docs/redoctober.png from the emulator repo into an images/ folder here -->
+                <img src="images/redoctober.png" alt="Red October, an XO-CHIP game, running in the emulator"
+                     onerror="this.replaceWith(Object.assign(document.createElement('span'),{className:'placeholder mono',textContent:'CHIP-8 > _'}))">
+            </div>
+            <div>
+                <h3>CHIP-8 / SUPER-CHIP / XO-CHIP Emulator</h3>
+                <p class="meta mono">C++17 · SDL2 · WebAssembly</p>
+                <p>
+                    An emulator for a family of retro virtual machines, written from scratch. It runs
+                    classic 1970s games, hi-res SUPER-CHIP games, and modern 4-color XO-CHIP games
+                    with programmable sound. It passes a standard opcode test suite, and the same C++
+                    core is compiled to WebAssembly so it runs right in your browser.
+                </p>
+                <ul class="tags">
+                    <li>CPU emulation</li>
+                    <li>Audio</li>
+                    <li>Graphics</li>
+                    <li>Testing</li>
+                </ul>
+                <div class="links">
+                    <a href="https://slee9817.github.io/chip8-emulator/">▶ Play it</a>
+                    <a href="https://github.com/slee9817/chip8-emulator">Source</a>
+                </div>
+            </div>
+        </article>
 
-    <article class="project">
-        <div class="shot">
-            <img src="images/spc-chart.png" alt="SPC control chart flagging a process shift" style="object-fit: contain; background: #fff; image-rendering: auto;">
-        </div>
-      <div>
-        <h3>SPC Control Chart Tool</h3>
-        <p class="meta mono">Python · Streamlit · pandas · pytest</p>
-        <p>
-          A statistical process control web app. Load measurement data and it builds I-MR
-          and X̄-R control charts, flags out-of-control signals with the Western Electric
-          rules, and calculates process capability (Cp, Cpk, Pp, Ppk). Every calculation is
-          covered by unit tests with hand-checked expected values, and all sample data is synthetic.
-        </p>
-        <ul class="tags">
-          <li>SPC</li><li>Capability</li><li>Data analysis</li><li>Unit testing</li>
-        </ul>
-        <div class="links">
+        <article class="project">
+            <div class="shot">
+                <img src="images/spc-chart.png" alt="SPC control chart flagging a process shift" style="object-fit: contain; background: #fff; image-rendering: auto;">
+            </div>
+            <div>
+                <h3>SPC Control Chart Tool</h3>
+                <p class="meta mono">Python · Streamlit · pandas · pytest</p>
+                <p>
+                    A statistical process control web app. Load measurement data and it builds I-MR
+                    and X̄-R control charts, flags out-of-control signals with the Western Electric
+                    rules, and calculates process capability (Cp, Cpk, Pp, Ppk). Every calculation is
+                    covered by unit tests with hand-checked expected values, and all sample data is synthetic.
+                </p>
+                <ul class="tags">
+                    <li>SPC</li>
+                    <li>Capability</li>
+                    <li>Data analysis</li>
+                    <li>Unit testing</li>
+                </ul>
+                <div class="links">
                     <a href="https://seanlee-spc.streamlit.app">▶ Try it</a>
-          <a href="https://github.com/slee9817/spc-tool">Source</a>
-        </div>
-      </div>
-    </article>
-  </section>
+                    <a href="https://github.com/slee9817/spc-tool">Source</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="project">
+            <div class="shot">
+                <img src="images/spc-game.png" alt="Don't Touch the Process game with rule signals on a live control chart" style="object-fit: contain; image-rendering: auto;">
+            </div>
+            <div>
+                <h3>Don't Touch the Process</h3>
+                <p class="meta mono">JavaScript · HTML Canvas · game design</p>
+                <p>
+                    A browser game that teaches statistical process control. Parts come off a virtual
+                    CNC line onto a live control chart while hidden problems (tool wear, bad material,
+                    a loose fixture) strike at random. Investigate real signals, leave the noise alone,
+                    and get graded at the end of the shift. Reacting to normal variation is penalized
+                    as tampering, just like Deming's funnel experiment.
+                </p>
+                <ul class="tags">
+                    <li>SPC</li>
+                    <li>Western Electric rules</li>
+                    <li>Game</li>
+                    <li>Training</li>
+                </ul>
+                <div class="links">
+                    <a href="https://slee9817.github.io/spc-game/">▶ Play it</a>
+                    <a href="https://github.com/slee9817/spc-game">Source</a>
+                </div>
+            </div>
+        </article>
+    </section>
 
   <!-- ===================== EXPERIENCE ===================== -->
   <section id="experience">
